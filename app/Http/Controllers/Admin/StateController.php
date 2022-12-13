@@ -37,7 +37,7 @@ class StateController extends Controller
         } else {
 
             $success = State::create($requestData);
-            return Redirect::route('admin.states')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.states')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -56,13 +56,13 @@ class StateController extends Controller
         } else {
             unset($requestData['_token']);
             State::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.states')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.states')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteState($id)
     {
         State::where('id', $id)->delete();
-        return Redirect::route('admin.states')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.states')->with('success', 'Updated Successfully!');
     }
 }

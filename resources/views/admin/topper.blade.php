@@ -131,7 +131,7 @@
                                         <label for="email-1">Image</label>
                                         <input type="file" class="form-control topper-image" name="image"
                                             id="image" accept="image/png, image/gif, image/jpeg" required>
-                                        <span style="color: red">(Image should be JPG, GIF, PNG and max 1mb) </span>
+                                            <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span>
                                     </div>
 
                                 </div>
@@ -199,7 +199,7 @@
                                         <label for="email-1">Image</label>
                                         <input type="file" class="form-control topper-image" name="image"
                                             accept="image/png, image/gif, image/jpeg">
-                                        <span style="color: red">(Image should be JPG, GIF, PNG and max 1mb) </span><br />
+                                            <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span><br />
                                         <img id="about_img" width="25%">
                                     </div>
 

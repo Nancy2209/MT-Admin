@@ -18,7 +18,7 @@ use Response;
 
 class AboutUsController extends Controller
 {
-    // List about us 
+    // List about us
     public function index()
     {
         $user = Auth::user();
@@ -34,7 +34,7 @@ class AboutUsController extends Controller
             'year' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
+            'image' => 'mimes:jpeg,jpg,png,gif,svg|max:2048'
         ];
 
         $requestData = $request->all();
@@ -60,11 +60,11 @@ class AboutUsController extends Controller
             unset($requestData['revenue']);
             unset($requestData['students']);
             $success = AboutUs::create($requestData);
-            return Redirect::route('admin.about')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.about')->with('success', 'Updated Successfully!');
         }
     }
 
-    // edit about page 
+    // edit about page
     public function updateAbouts(Request $request)
     {
         $rules = [
@@ -72,6 +72,7 @@ class AboutUsController extends Controller
             'year' => 'required',
             'title' => 'required',
             'description' => 'required',
+            'image' => 'mimes:jpeg,jpg,png,gif,svg|max:2048'
         ];
 
         $requestData = $request->all();
@@ -98,7 +99,7 @@ class AboutUsController extends Controller
             unset($requestData['revenue']);
             unset($requestData['students']);
             AboutUs::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.about')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.about')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -106,6 +107,6 @@ class AboutUsController extends Controller
     public function deleteAbouts($id)
     {
         AboutUs::where('id', $id)->delete();
-        return Redirect::route('admin.about')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.about')->with('success', 'Updated Successfully!');
     }
 }

@@ -111,9 +111,10 @@
                                     <label for="maskPhone" class="form-label">Image</label>
                                     <div class="mb-0">
                                         <input class="form-control" type="file" name="image" id="image"
-                                            accept="image/png, image/gif, image/jpeg" required>
+                                            accept="image/png, image/gif, image/jpeg">
                                     </div>
-                                    <span style="color: red">(Image should be PNG,GIF,JPEG only)</span>
+                                    <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed
+                                        file size is 100 KB) </span>
 
                                 </div>
                             </div>
@@ -157,7 +158,8 @@
                                             accept="image/png, image/gif, image/jpeg" onchange="Filevalidation(this)">
                                         <img id="profile_img">
                                     </div>
-                                    <span style="color: red">(Image should be PNG,GIF,JPEG only)</span>
+                                    <span style="color: red">(Only the jpeg/png image files are allowed. The maximum
+                                        allowed file size is 100 KB) </span>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -192,10 +194,10 @@
                     designation: {
                         required: true,
                     },
-                    profile_img: {
-                        required: true,
+                    // profile_img: {
+                    //     required: true,
 
-                    },
+                    // },
                 }
             });
         });

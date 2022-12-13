@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('code')->nullable();
-            $table->integer('mobile')->nullable();
-            $table->string('email',150)->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('email', 150)->nullable();
             $table->string('address')->nullable();
             $table->string('address1')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();

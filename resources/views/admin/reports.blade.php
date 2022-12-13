@@ -137,7 +137,7 @@
                                         <input class="form-control" type="file" name="file_name" id="file_name"
                                             accept=".pdf" required>
                                     </div>
-                                    <span style="color: red">(File should be PDF and max size 1mb only.)</span>
+                                    <span style="color: red">(File should be PDF and max size 5mb only.)</span>
                                 </div>
                             </div>
 
@@ -194,7 +194,7 @@
                                     <div class="mb-0">
                                         <input class="form-control" type="file" name="file_name" id="filename"
                                             accept=".pdf">
-                                        <span style="color: red">(File should be PDF and max size 1mb only.)</span>
+                                        <span style="color: red">(File should be PDF and max size 5mb only.)</span>
                                         <a href="" id="investorFile" target="_blank">View File</a>
                                     </div>
                                 </div>

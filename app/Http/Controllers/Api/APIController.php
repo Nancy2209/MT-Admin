@@ -28,11 +28,14 @@ use App\Models\GalleryCategory;
 use App\Models\InvestorPresentation;
 use App\Models\Job;
 use App\Models\KeyManagement;
+use App\Models\KeyManagementBoard;
 use App\Models\Media;
+use App\Models\MetaTag;
 use App\Models\PressRelease;
 use App\Models\PrivacyPolicy;
 use App\Models\ReleaseCategory;
 use App\Models\Report;
+use App\Models\SocialMedia;
 use App\Models\StudentHear;
 use App\Models\Team;
 use App\Models\Term;
@@ -180,7 +183,13 @@ class APIController extends Controller
     {
         try {
             $aboutUs = AboutUs::all();
-            $response = ['success' => true, 'message' => 'AboutUs get successfully', 'data' => $aboutUs];
+            $last_id = AboutUs::latest()->first()->id;
+            $first_id = AboutUs::first()->id;
+            // $aboutUs['last_id'] = $last_id;
+            // $aboutUs['first_id'] = $first_id;
+            // dd($aboutUs);
+
+            $response = ['success' => true, 'message' => 'AboutUs get successfully', 'data' => $aboutUs, 'last_id' => $last_id, 'first_id' => $first_id];
             return Response::json($response, 200);
         } catch (Exception $e) {
 
@@ -203,11 +212,14 @@ class APIController extends Controller
     public function boarOfCOmmites()
     {
         try {
-            $commites = Committee::all();
-            $response = ['success' => true, 'message' => 'Borad of commitee get successfully', 'data' => $commites];
+            $committeData = [];
+            $commites = Committee::select('title')->groupBy('title')->get();
+            foreach ($commites as $committe) {
+                $committeData[] = Committee::where('title', $committe->title)->get();
+            }
+            $response = ['success' => true, 'message' => 'Board of commitee get successfully', 'data' => $committeData];
             return Response::json($response, 200);
         } catch (Exception $e) {
-
             return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
         }
     }
@@ -217,6 +229,18 @@ class APIController extends Controller
         try {
             $keys = KeyManagement::all();
             $response = ['success' => true, 'message' => 'Key Management get successfully', 'data' => $keys];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
+    public function boardDetail()
+    {
+        try {
+            $keys = KeyManagementBoard::all();
+            $response = ['success' => true, 'message' => 'Board detail get successfully', 'data' => $keys];
             return Response::json($response, 200);
         } catch (Exception $e) {
 
@@ -627,6 +651,56 @@ class APIController extends Controller
             }
             $reportData = $reports->get();
             $response = ['success' => true, 'message' => 'Reports search get successfully', 'data' => $reportData];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
+    public function defaultIntroDetails()
+    {
+        try {
+            $defaultAbout = [];
+            $aboutId = AboutUs::first();
+
+            $response = ['success' => true, 'message' => 'Default about successfully', 'data' => $aboutId];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
+    public function metaTags()
+    {
+        try {
+            $metaTags = MetaTag::all();
+            $response = ['success' => true, 'message' => 'Meta tags successfully', 'data' => $metaTags];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
+    public function socialLinkList()
+    {
+        try {
+            $socialLink = SocialMedia::all();
+            $response = ['success' => true, 'message' => 'Social link successfully', 'data' => $socialLink];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
+    public function introData($id)
+    {
+        try {
+            $introData = AboutUs::find($id);
+            $response = ['success' => true, 'message' => 'About data successfully', 'data' => $introData];
             return Response::json($response, 200);
         } catch (Exception $e) {
 

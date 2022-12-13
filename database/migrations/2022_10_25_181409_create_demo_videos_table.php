@@ -21,6 +21,7 @@ class CreateDemoVideosTable extends Migration
             $table->string('video_name')->nullable();
             $table->text('description')->nullable();
             $table->string('subject_tag')->nullable();
+            $table->string('standard_tag')->nullable();
             $table->timestamps();
             $table->foreign('class_id')->references('id')->on('class_categories')->onDelete('cascade');
         });

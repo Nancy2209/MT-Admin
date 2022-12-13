@@ -128,7 +128,8 @@
                                     <div class="mb-2">
                                         <input class="form-control" type="file" name="image" id="team_image"
                                             accept="image/png, image/gif, image/jpeg" required>
-                                        <span style="color: red;">(Image should be GIF,PNG,JPEG only) </span>
+                                        <span style="color: red">(Only the jpeg/png image files are allowed. The maximum
+                                            allowed file size is 100 KB) </span>
                                     </div>
 
                                     <label for="maskPhone" class="form-label">Tag</label>
@@ -181,6 +182,8 @@
                                     <div class="mb-2">
                                         <input class="form-control" type="file" name="image"
                                             accept="image/png, image/gif, image/jpeg">
+                                        <span style="color: red">(Only the jpeg/png image files are allowed. The maximum
+                                            allowed file size is 100 KB) </span>
                                         <img class="avatar lg rounded-circle me-2 mb-2" alt="" id="team_image">
 
                                     </div>
@@ -219,7 +222,7 @@
                     },
                     course_id: {
                         required: true,
-                        number: true
+                        // number: true
 
                     },
                     team_image: {

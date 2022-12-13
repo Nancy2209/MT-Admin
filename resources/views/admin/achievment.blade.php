@@ -20,7 +20,7 @@
             <div class="position-relative container-fluid px-0">
                 <div class="row align-items-center position-relative">
                     <div class="col-md-8 mb-4 mb-md-0">
-                        <h3 class="mb-2">Our Achievments</h3>
+                        <h3 class="mb-2">Our Achievements</h3>
 
 
                     </div>
@@ -120,8 +120,8 @@
                                         id="institute_ratio" name="institute_ratio" required>
 
                                     <label for="maskPhone" class="form-label">School Ratio</label>
-                                    <input class="form-control mb-2" type="text" placeholder="schools"
-                                        id="school_ratio" name="school_ratio" required>
+                                    <input class="form-control mb-2" type="text" placeholder="schools" id="school_ratio"
+                                        name="school_ratio" required>
 
                                     <label for="maskPhone" class="form-label">College Ratio</label>
                                     <input class="form-control mb-2" type="text" placeholder="colleges"
@@ -157,24 +157,23 @@
                                     <input type="hidden" name="id" id="achievment_id">
                                     <div class="modal-body">
                                         <label for="maskPhone" class="form-label">Student Ratio</label>
-                                        <input class="form-control mb-2" type="text"
-                                            placeholder="students" name="student_ratio" id="student_ratio" required>
+                                        <input class="form-control mb-2" type="text" placeholder="students"
+                                            name="student_ratio" id="student_ratio" required>
                                         <label for="maskPhone" class="form-label">Faculty Ratio</label>
-                                        <input class="form-control mb-2" type="text"
-                                            placeholder="faculties" name="faculty_ratio" id="faculty_ratio" required>
+                                        <input class="form-control mb-2" type="text" placeholder="faculties"
+                                            name="faculty_ratio" id="faculty_ratio" required>
                                         <label for="maskPhone" class="form-label">Institute Ratio</label>
-                                        <input class="form-control mb-2" type="text"
-                                            placeholder="institutes" name="institute_ratio" id="institute_ratio"
-                                            required>
+                                        <input class="form-control mb-2" type="text" placeholder="institutes"
+                                            name="institute_ratio" id="institute_ratio" required>
                                         <label for="maskPhone" class="form-label">College Ratio</label>
 
-                                        <input class="form-control mb-2" type="text"
-                                            placeholder="colleges" name="college_ratio" id="collge_ratio" required>
+                                        <input class="form-control mb-2" type="text" placeholder="colleges"
+                                            name="college_ratio" id="collge_ratio" required>
 
                                         <label for="maskPhone" class="form-label">School Ratio</label>
 
-                                        <input class="form-control mb-2" type="text"
-                                            placeholder="schools" name="school_ratio" id="school_ratio" required>
+                                        <input class="form-control mb-2" type="text" placeholder="schools"
+                                            name="school_ratio" id="school_ratio" required>
 
 
 

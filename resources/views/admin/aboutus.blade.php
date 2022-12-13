@@ -130,9 +130,9 @@
                                     </div>
                                     <div class="form-group mb-1">
                                         <label for="email-1">Image</label>
-                                        <input type="file" class="form-control " name="image" id="image"
-                                            accept="image/png, image/gif, image/jpeg" required>
-                                        <span style="color: red">(Image should be less than 1MB.) </span>
+                                        <input type="file" class="form-control" name="image" id="image"
+                                            accept="image/png, image/gif, image/jpeg, image/svg" required>
+                                            <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span>
                                     </div>
 
                                     <div class="form-group mb-1">
@@ -183,7 +183,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                 aria-label="Close"></button>
                         </div>
-                        <form action="{{ route('admin.update.about') }}" class="ajaxForm" method="post"
+                        <form action="{{ route('admin.update.about') }}" id="updateAbout" class="ajaxForm" method="post"
                             enctype="multipart/form-data">
 
                             @csrf
@@ -209,8 +209,8 @@
                                     <div class="form-group mb-1">
                                         <label for="email-1">Image</label>
                                         <input type="file" class="form-control " name="image"
-                                            accept="image/png, image/gif, image/jpeg">
-                                        <span style="color: red">(Image should be less than 1MB.) </span>
+                                            accept="image/png, image/gif, image/jpeg, image/svg">
+                                        <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span>
 
                                         <img id="about_img" width="25%">
                                     </div>
@@ -269,17 +269,27 @@
                         required: true,
 
                     },
-                    centers: {
+                },
+
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#updateAbout').validate({
+                rules: {
+                    year: {
                         required: true,
-                        digits: true
+                        // number: true
                     },
-                    revenue: {
+                    title: {
                         required: true,
-                        digits: true
+                        maxlength: 50
+
                     },
-                    students: {
+                    description: {
                         required: true,
-                        digits: true
+
                     },
                 },
 

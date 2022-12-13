@@ -49,7 +49,7 @@ class CenterController extends Controller
             $requestData['code'] = '+91';
 
             $success = Center::create($requestData);
-            return Redirect::route('admin.centers')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.centers')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -76,7 +76,7 @@ class CenterController extends Controller
         } else {
             unset($requestData['_token']);
             Center::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.centers')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.centers')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -84,7 +84,7 @@ class CenterController extends Controller
     public function deleteCenter($id)
     {
         Center::where('id', $id)->delete();
-        return Redirect::route('admin.centers')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.centers')->with('success', 'Updated Successfully!');
     }
 
     // get city by state Id

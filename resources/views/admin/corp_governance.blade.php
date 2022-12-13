@@ -109,7 +109,7 @@
                                     <div class="mb-0">
                                         <input class="form-control" type="file" name="filename" accept=".pdf" required>
                                     </div>
-                                    <span style="color: red">(File should be PDF and max 1mb) </span>
+                                    <span style="color: red">(File should be PDF and max 5mb) </span>
                                 </div>
                             </div>
 
@@ -148,7 +148,7 @@
                                     <div class="mb-0">
                                         <input class="form-control" type="file" name="filename" id="filename"
                                             required accept=".pdf">
-                                        <span style="color: red">(File should be PDF and max 1mb) </span>
+                                        <span style="color: red">(File should be PDF and max 5mb) </span>
 
                                         <a href="" id="corpFile" target="_blank">View File</a>
                                     </div>

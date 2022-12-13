@@ -37,7 +37,7 @@ class ReportController extends Controller
         }
 
         ReportCategory::create($requestData);
-        return Redirect::route('admin.report.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.report.category')->with('success', 'Updated Successfully!');
     }
 
 
@@ -59,14 +59,14 @@ class ReportController extends Controller
             unset($requestData['_token']);
             $contactAdd = ReportCategory::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.report.category')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.report.category')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteReportCategory($id)
     {
         ReportCategory::where('id', $id)->delete();
-        return Redirect::route('admin.report.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.report.category')->with('success', 'Updated Successfully!');
     }
 
     // Report start
@@ -102,7 +102,7 @@ class ReportController extends Controller
         }
 
         Report::create($requestData);
-        return Redirect::route('admin.report')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.report')->with('success', 'Updated Successfully!');
     }
 
 
@@ -134,13 +134,13 @@ class ReportController extends Controller
             unset($requestData['_token']);
             $contactAdd = Report::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.report')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.report')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteReports($id)
     {
         Report::where('id', $id)->delete();
-        return Redirect::route('admin.report')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.report')->with('success', 'Updated Successfully!');
     }
 }

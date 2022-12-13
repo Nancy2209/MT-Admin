@@ -9,13 +9,13 @@ class CourseDetail extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'course_id','title','description','tag_name','image'
+        'course_id', 'title', 'description', 'tag_name', 'image'
 
     ];
 
 
     public function courseType()
     {
-        return $this->hasOne('\App\Models\CourseType','id','course_id');
+        return $this->hasOne('\App\Models\CourseType', 'id', 'course_id');
     }
 }

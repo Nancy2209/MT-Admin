@@ -41,7 +41,7 @@ class LegalController extends Controller
         } else {
 
             PrivacyPolicy::create($requestData);
-            return Redirect::route('admin.privacy_policy')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.privacy_policy')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -65,7 +65,7 @@ class LegalController extends Controller
             $policy->description =  $requestData['description'];
             $policy->save();
 
-            return Redirect::route('admin.privacy_policy')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.privacy_policy')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -90,7 +90,7 @@ class LegalController extends Controller
         } else {
 
             Term::create($requestData);
-            return Redirect::route('admin.terms')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.terms')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -114,14 +114,14 @@ class LegalController extends Controller
             $term->description =  $requestData['description'];
             $term->save();
 
-            return Redirect::route('admin.terms')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.terms')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteTerm($id)
     {
         Term::where('id', $id)->delete();
-        return Redirect::route('admin.terms')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.terms')->with('success', 'Updated Successfully!');
     }
 
 
@@ -146,7 +146,7 @@ class LegalController extends Controller
         } else {
 
             Disclaimer::create($requestData);
-            return Redirect::route('admin.disclaimer')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.disclaimer')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -170,7 +170,7 @@ class LegalController extends Controller
             $disclaimer->description =  $requestData['description'];
             $disclaimer->save();
 
-            return Redirect::route('admin.disclaimer')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.disclaimer')->with('success', 'Updated Successfully!');
         }
     }
 }

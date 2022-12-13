@@ -16,7 +16,7 @@ class Gallary extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'image', 'category_id'
+        'image', 'category_id',
     ];
 
     public function category()

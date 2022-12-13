@@ -46,7 +46,7 @@ class InvestorRelationsController extends Controller
         }
 
         CorpGovernance::create($requestData);
-        return Redirect::route('admin.corp.governance')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.corp.governance')->with('success', 'Updated Successfully!');
     }
 
 
@@ -76,14 +76,14 @@ class InvestorRelationsController extends Controller
             unset($requestData['_token']);
             $contactAdd = CorpGovernance::where('id', $video->id)->update($requestData);
 
-            return Redirect::route('admin.corp.governance')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.corp.governance')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteCorpGovernance($id)
     {
         CorpGovernance::where('id', $id)->delete();
-        return Redirect::route('admin.corp.governance')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.corp.governance')->with('success', 'Updated Successfully!');
     }
 
 
@@ -118,7 +118,7 @@ class InvestorRelationsController extends Controller
         }
 
         InvestorPresentation::create($requestData);
-        return Redirect::route('admin.invester.presentation')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.invester.presentation')->with('success', 'Updated Successfully!');
     }
 
 
@@ -149,14 +149,14 @@ class InvestorRelationsController extends Controller
             unset($requestData['_token']);
             $contactAdd = InvestorPresentation::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.invester.presentation')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.invester.presentation')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteInvesterPresentation($id)
     {
         CorpGovernance::where('id', $id)->delete();
-        return Redirect::route('admin.invester.presentation')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.invester.presentation')->with('success', 'Updated Successfully!');
     }
 
     // Release Category start
@@ -180,7 +180,7 @@ class InvestorRelationsController extends Controller
         }
 
         ReleaseCategory::create($requestData);
-        return Redirect::route('admin.release.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.release.category')->with('success', 'Updated Successfully!');
     }
 
 
@@ -202,14 +202,14 @@ class InvestorRelationsController extends Controller
             unset($requestData['_token']);
             $contactAdd = ReleaseCategory::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.release.category')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.release.category')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteReleaseCategory($id)
     {
         ReleaseCategory::where('id', $id)->delete();
-        return Redirect::route('admin.release.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.release.category')->with('success', 'Updated Successfully');
     }
 
 
@@ -246,7 +246,7 @@ class InvestorRelationsController extends Controller
         }
 
         PressRelease::create($requestData);
-        return Redirect::route('admin.press.release')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.press.release')->with('success', 'Updated Successfully');
     }
 
 
@@ -278,13 +278,13 @@ class InvestorRelationsController extends Controller
             unset($requestData['_token']);
             $contactAdd = PressRelease::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.press.release')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.press.release')->with('success', 'Updated Successfully');
         }
     }
 
     public function deletePressReleases($id)
     {
         PressRelease::where('id', $id)->delete();
-        return Redirect::route('admin.press.release')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.press.release')->with('success', 'Updated Successfully!');
     }
 }

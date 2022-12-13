@@ -127,11 +127,10 @@
 
                                 <label for="maskPhone" class="form-label">Candidate and Profile</label>
                                 <textarea class="form-control mb-2" name="candidate_profile" placeholder="candidate profile" id="candidate_profile"
-                                    required>
-                                </textarea>
+                                    required></textarea>
 
                                 <label for="maskPhone" class="form-label">Description</label>
-                                <textarea class="form-control mb-2" placeholder="description" name="description" id="description" required> </textarea>
+                                <textarea class="form-control mb-2" placeholder="description" name="description" id="description" required></textarea>
 
                                 <label for="maskPhone" class="form-label">Status</label>
                                 <select class="form-control mb-2" id="status" name="status" required>
@@ -178,12 +177,10 @@
                                     id="location" required>
 
                                 <label for="maskPhone" class="form-label">Candidate Profile</label>
-                                <textarea class="form-control mb-2" name="candidate_profile" id="candidate_profile" required>
-
-                                </textarea>
+                                <textarea class="form-control mb-2" name="candidate_profile" id="candidate_profile" required></textarea>
 
                                 <label for="maskPhone" class="form-label">Description</label>
-                                <textarea class="form-control mb-2" placeholder="description" name="description" id="description"> </textarea>
+                                <textarea class="form-control mb-2" placeholder="description" name="description" id="description"></textarea>
 
                                 <label for="maskPhone" class="form-label">Status</label>
                                 <select class="form-control mb-2" name="status" id="status" required>

@@ -22,7 +22,7 @@ class CSRController extends Controller
     public function csr()
     {
         $csrs = CSR::all();
-        return view('admin.csr', compact('csrs'));
+        return view('admin.CSR', compact('csrs'));
     }
 
     public function addCsr(Request $request)
@@ -45,7 +45,7 @@ class CSRController extends Controller
             $requestData['image'] =  $profileName;
             //dd($requestData);
             CSR::create($requestData);
-            return Redirect::route('admin.CSR')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.csr')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -73,13 +73,13 @@ class CSRController extends Controller
             }
             unset($requestData['_token']);
             CSR::where('id', $csr->id)->update($requestData);
-            return Redirect::route('admin.csr')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.csr')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteCsr($id)
     {
         CSR::where('id', $id)->delete();
-        return Redirect::route('admin.csr')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.csr')->with('success', 'Updated Successfully!');
     }
 }

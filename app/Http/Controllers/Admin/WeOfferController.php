@@ -50,7 +50,7 @@ class WeOfferController extends Controller
         }
 
         WeOffer::create($requestData);
-        return Redirect::route('admin.we.offer')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.we.offer')->with('success', 'Updated Successfully!');
     }
 
 
@@ -80,14 +80,14 @@ class WeOfferController extends Controller
             unset($requestData['_token']);
             $contactAdd = WeOffer::where('id', $offer->id)->update($requestData);
 
-            return Redirect::route('admin.we.offer')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.we.offer')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteOffer($id)
     {
         WeOffer::where('id', $id)->delete();
-        return Redirect::route('admin.we.offer')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.we.offer')->with('success', 'Updated Successfully!');
     }
 
 
@@ -122,7 +122,7 @@ class WeOfferController extends Controller
         }
 
         StudentHear::create($requestData);
-        return Redirect::route('admin.student.hear')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.student.hear')->with('success', 'Updated Successfully!');
     }
 
 
@@ -153,13 +153,13 @@ class WeOfferController extends Controller
             unset($requestData['_token']);
             $contactAdd = StudentHear::where('id', $hear->id)->update($requestData);
 
-            return Redirect::route('admin.student.hear')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.student.hear')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteStudentHear($id)
     {
         StudentHear::where('id', $id)->delete();
-        return Redirect::route('admin.student.hear')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.student.hear')->with('success', 'Updated Successfully!');
     }
 }

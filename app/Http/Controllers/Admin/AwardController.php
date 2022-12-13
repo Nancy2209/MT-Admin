@@ -31,7 +31,7 @@ class AwardController extends Controller
             'title' => 'required',
             'description' => 'required',
             'image' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image.*' => 'image|mimes:jpeg,png,jpg,svg|max:2048'
 
         ];
 
@@ -51,7 +51,7 @@ class AwardController extends Controller
             }
             $requestData['image'] = json_encode($imageData);
             Award::create($requestData);
-            return Redirect::route('admin.award')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.award')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -90,13 +90,13 @@ class AwardController extends Controller
             }
 
             Award::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.award')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.award')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteAward($id)
     {
         Award::where('id', $id)->delete();
-        return Redirect::route('admin.award')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.award')->with('success', 'Updated Successfully!');
     }
 }

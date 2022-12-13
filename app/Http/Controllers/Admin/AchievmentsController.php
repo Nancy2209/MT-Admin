@@ -41,7 +41,7 @@ class AchievmentsController extends Controller
         } else {
 
             $success = Achievments::create($requestData);
-            return Redirect::route('admin.achievment')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.achievment')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -65,7 +65,7 @@ class AchievmentsController extends Controller
             unset($requestData['_token']);
             unset($requestData['id']);
             Achievments::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.achievment')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.achievment')->with('success', 'Updated Successfully!');
         }
     }
 }

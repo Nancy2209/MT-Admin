@@ -60,7 +60,7 @@ class DashboardController extends Controller
         }
 
         GalleryCategory::create($requestData);
-        return Redirect::route('admin.gallery.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.gallery.category')->with('success', 'Updated Successfully!');
     }
 
 
@@ -82,14 +82,14 @@ class DashboardController extends Controller
             unset($requestData['_token']);
             $contactAdd = GalleryCategory::where('id', $investor->id)->update($requestData);
 
-            return Redirect::route('admin.gallery.category')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.gallery.category')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteGalleryCategory($id)
     {
         GalleryCategory::where('id', $id)->delete();
-        return Redirect::route('admin.gallery.category')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.gallery.category')->with('success', 'Updated Successfully!');
     }
 
     public function gallary()
@@ -125,7 +125,7 @@ class DashboardController extends Controller
             // $path = Storage::disk('s3')->url($path);
 
             //     dd($path);
-            return Redirect::route('admin.gallary')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.gallary')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -154,14 +154,14 @@ class DashboardController extends Controller
             unset($requestData['_token']);
             unset($requestData['gallary_id']);
             Gallary::where('id', $gallary->id)->update($requestData);
-            return Redirect::route('admin.gallary')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.gallary')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteGallary($id)
     {
         Gallary::where('id', $id)->delete();
-        return Redirect::route('admin.gallary')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.gallary')->with('success', 'Updated Successfully!');
     }
 
     public function logout()

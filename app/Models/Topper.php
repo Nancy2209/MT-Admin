@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Topper extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'percentage', 'description'];
+    protected $fillable = ['name', 'percentage', 'description', 'image'];
 }

@@ -40,7 +40,8 @@ class TopperController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         } else {
-            if ($request->image) {
+
+            if ($request->file('image')) {
                 $topperImage = $request->file('image');
                 $topperName = time() . 'topperImage.' . $topperImage->getClientOriginalExtension();
                 Storage::disk('public')->put($topperName,  File::get($topperImage));
@@ -53,7 +54,7 @@ class TopperController extends Controller
             }
 
             $success = Topper::create($requestData);
-            return Redirect::route('admin.topper')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.topper')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -73,7 +74,7 @@ class TopperController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             unset($requestData['_token']);
-            if ($request->image) {
+            if ($request->file('image')) {
                 $topperImage = $request->file('image');
                 $topperName = time() . 'topperImage.' . $topperImage->getClientOriginalExtension();
                 Storage::disk('public')->put($topperName,  File::get($topperImage));
@@ -86,7 +87,7 @@ class TopperController extends Controller
             }
 
             Topper::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.topper')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.topper')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -94,6 +95,6 @@ class TopperController extends Controller
     public function deleteToppers($id)
     {
         Topper::where('id', $id)->delete();
-        return Redirect::route('admin.topper')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.topper')->with('success', 'Updated Successfully!');
     }
 }

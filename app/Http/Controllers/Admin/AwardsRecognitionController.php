@@ -33,7 +33,7 @@ class AwardsRecognitionController extends Controller
         } else {
 
             $success = AwardsRecognition::create($requestData);
-            return Redirect::route('admin.awards')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.awards')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -53,7 +53,7 @@ class AwardsRecognitionController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             AwardsRecognition::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.awards')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.awards')->with('success', 'Updated Successfully!');
         }
     }
 

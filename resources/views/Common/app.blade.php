@@ -130,8 +130,8 @@
             });
         });
         $("input[type='file']").on("change", function() {
-            if (this.files[0].size > 1000000) {
-                alert("Please upload file less than 1MB. Thanks!!");
+            if (this.files[0].size > 5000000) {
+                alert("Please upload the file less than 5MB.");
                 $(this).val('');
             }
         });

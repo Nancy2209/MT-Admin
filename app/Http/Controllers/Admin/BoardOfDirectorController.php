@@ -28,7 +28,7 @@ class BoardOfDirectorController extends Controller
         $rules = [
             'name' => 'required',
             'designation' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
+            // 'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
 
         ];
 
@@ -50,7 +50,7 @@ class BoardOfDirectorController extends Controller
                 // $gallary->save();
             }
             $success = BoardOfDirector::create($requestData);
-            return Redirect::route('admin.boardOfDirectors')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.boardOfDirectors')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -59,7 +59,7 @@ class BoardOfDirectorController extends Controller
         $rules = [
             'name' => 'required',
             'designation' => 'required',
-            'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
+            // 'image' => 'mimes:jpeg,jpg,png,gif|max:2048'
         ];
 
         $requestData = $request->all();
@@ -81,13 +81,13 @@ class BoardOfDirectorController extends Controller
                 // $gallary->save();
             }
             BoardOfDirector::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.boardOfDirectors')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.boardOfDirectors')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteMember($id)
     {
         BoardOfDirector::where('id', $id)->delete();
-        return Redirect::route('admin.boardOfDirectors')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.boardOfDirectors')->with('success', 'Updated Successfully!');
     }
 }

@@ -41,7 +41,7 @@ class MediaController extends Controller
             return back()->withErrors($validator)->withInput();
         } else {
             Media::create($requestData);
-            return Redirect::route('admin.media')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.media')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -65,13 +65,13 @@ class MediaController extends Controller
             unset($requestData['_token']);
             $mediaAdd = Media::where('id', $request->id)->update($requestData);
 
-            return Redirect::route('admin.media')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.media')->with('success', 'Updated Successfully!');
         }
     }
 
     public function deleteMedia($id)
     {
         Media::where('id', $id)->delete();
-        return Redirect::route('admin.media')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.media')->with('success', 'Updated Successfully!');
     }
 }

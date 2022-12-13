@@ -132,8 +132,7 @@
                                 <label for="maskPhone" class="form-label">Images</label>
                                 <input class="form-control mb-2" type="file" name="image[]" id="images"
                                     accept="image/png, image/gif, image/jpeg" multiple required>
-                                <span style="color: red">(Choose multiple images should be GIF,PNG,JPEG and total size
-                                    should be 1 mb)</span>
+                                    <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span>
 
                                 <div class="col-md-12">
                                     <div class="mt-1 text-center">
@@ -180,8 +179,7 @@
                                 <label for="maskPhone" class="form-label">Images</label>
                                 <input class="form-control mb-2" type="file" name="image[]" id="images"
                                     accept="image/png, image/gif, image/jpeg" multiple>
-                                <span style="color: red">(Choose multiple images should be GIF,PNG,JPEG and total size
-                                    should be 1 mb)</span>
+                                    <span style="color: red">(Only the jpeg/png image files are allowed. The maximum allowed file size is 100 KB) </span>
 
 
                                 <div class="col-md-12">

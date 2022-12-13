@@ -38,7 +38,7 @@ class CommitteeController extends Controller
         } else {
 
             $success = Committee::create($requestData);
-            return Redirect::route('admin.committee')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.committee')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -59,7 +59,7 @@ class CommitteeController extends Controller
         } else {
             unset($requestData['_token']);
             Committee::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.committee')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.committee')->with('success', 'Updated Successfully!');
         }
     }
 

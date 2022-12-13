@@ -135,6 +135,9 @@
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
                                             name="video_url" id="video_url" required>
+                                        <span style="color: red"> In case of Youtube video link, please use embeded code
+                                            of the link. such as :<a href="https://www.youtube.com/embed/s6QL1RrGzSM"
+                                                target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>
                                     </div>
 
                                     <div class="position-fixed start-50 top-0 translate-middle-x p-3" style="z-index: 1080">
@@ -170,8 +173,8 @@
                             </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        <form action="{{ route('admin.edit.gallery.video') }}" method="post" enctype="multipart/form-data"
-                            class="ajaxForm">
+                        <form action="{{ route('admin.edit.gallery.video') }}" method="post"
+                            enctype="multipart/form-data" class="ajaxForm">
 
                             @csrf
                             <div class="modal-body">
@@ -183,6 +186,9 @@
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
                                             name="video_url" id="edit_video_url">
+                                        <span style="color: red"> In case of Youtube video link, please use embeded code
+                                            of the link. such as :<a href="https://www.youtube.com/embed/s6QL1RrGzSM"
+                                                target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>
                                     </div>
                                     {{-- <span>OR</span> --}}
 

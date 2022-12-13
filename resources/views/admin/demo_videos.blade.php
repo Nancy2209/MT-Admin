@@ -52,8 +52,8 @@
                                                     <th>Description </th>
                                                     <th>Video Url </th>
                                                     {{-- <th>Video</th> --}}
-                                                    <th>Tag </th>
-
+                                                    <th> Subject Tag </th>
+                                                    <th> Standard Tag </th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -81,7 +81,8 @@
                                                                 </video>
                                                             @endif
                                                         </td> --}}
-                                                        <td>{{ @$demoVideo->tag_name }}</td>
+                                                        <td>{{ @$demoVideo->subject_tag }}</td>
+                                                        <td>{{ @$demoVideo->standard_tag }}</td>
 
                                                         <td> <a class="js-edit-logo" data-bs-toggle="modal"
                                                                 href="#editModal" style="cursor:pointer" title="edit state"
@@ -89,7 +90,8 @@
                                                                 data-class_name="{{ $demoVideo->classCategory->id }}"
                                                                 data-title="{{ $demoVideo->title }}"
                                                                 data-description="{{ $demoVideo->description }}"
-                                                                data-tag_name="{{ $demoVideo->tag_name }}"
+                                                                data-subject_tag="{{ $demoVideo->subject_tag }}"
+                                                                data-standard_tag="{{ $demoVideo->standard_tag }}"
                                                                 data-video_url="{{ $demoVideo->video_url }}"
                                                                 data-video_name="{{ $demoVideo->video_name ? asset('storage/' . $demoVideo->video_name) : '' }}"><i
                                                                     class="fa fa-edit"></i></a>
@@ -142,14 +144,21 @@
                                     <label for="maskPhone" class="form-label">Description</label>
                                     <textarea class="form-control mb-2" type="text" placeholder="description" name="description" required></textarea>
 
-                                    <label for="maskPhone" class="form-label">Tag</label>
-                                    <input class="form-control mb-2" type="text" placeholder="tag" name="tag_name"
-                                        required>
+                                    <label for="maskPhone" class="form-label">Subject Tag</label>
+                                    <input class="form-control mb-2" type="text" placeholder="subject tag"
+                                        name="subject_tag" required>
+
+                                    <label for="maskPhone" class="form-label">Standard Tag</label>
+                                    <input class="form-control mb-2" type="text" placeholder="standard tag"
+                                        name="standard_tag" required>
 
                                     <h6>Video URL</h6>
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
                                             name="video_url" id="video_url">
+                                        <span style="color: red">In case of Youtube video link, please use embeded code
+                                            of the link. such as : <a href="https://www.youtube.com/embed/s6QL1RrGzSM"
+                                                target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>
                                     </div>
                                     {{-- <span>OR</span>
 
@@ -159,7 +168,8 @@
                                             accept="video/mp4,video/x-m4v,video/*" onchange="Filevalidation()">
                                         <span id="error_video"></span>
                                     </div> --}}
-                                    <div class="position-fixed start-50 top-0 translate-middle-x p-3" style="z-index: 1080">
+                                    <div class="position-fixed start-50 top-0 translate-middle-x p-3"
+                                        style="z-index: 1080">
                                         <div id="liveToast" class="toast bg-danger text-white border-0 shadow-lg"
                                             role="alert" aria-live="assertive" aria-atomic="true">
                                             <div class="d-flex">
@@ -213,15 +223,22 @@
                                     <label for="maskPhone" class="form-label">Description</label>
                                     <textarea class="form-control mb-2" type="text" placeholder="description" name="description" id="description"
                                         required></textarea>
-                                    <label for="maskPhone" class="form-label">Tag</label>
-                                    <input class="form-control mb-2" type="text" placeholder="tag" name="tag_name"
-                                        id="tag_name" required>
+                                    <label for="maskPhone" class="form-label">Subject Tag</label>
+                                    <input class="form-control mb-2" type="text" placeholder="subject tag"
+                                        name="subject_tag" id="subject_tag" required>
+
+                                    <label for="maskPhone" class="form-label">Standard Tag</label>
+                                    <input class="form-control mb-2" type="text" placeholder="standard tag"
+                                        name="standard_tag" id="standard_tag" required>
 
                                     {{-- <input class="form-control form-control-lg mb-2" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example"> --}}
                                     <h6>Video URL</h6>
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
                                             name="video_url" id="edit_video_url">
+                                        <span style="color: red"> In case of Youtube video link, please use embeded code
+                                            of the link. such as :<a href="https://www.youtube.com/embed/s6QL1RrGzSM"
+                                                target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>
                                     </div>
                                     {{-- <span>OR</span>
 
@@ -277,7 +294,8 @@
             var course_name = $(this).attr('data-course_name');
             var title = $(this).attr('data-title');
             var description = $(this).attr('data-description');
-            var tag_name = $(this).attr('data-tag_name');
+            var subject_tag = $(this).attr('data-subject_tag');
+            var standard_tag = $(this).attr('data-standard_tag');
             var video_url = $(this).attr('data-video_url');
             // var video_name = $(this).attr('data-video_name');
 
@@ -285,7 +303,8 @@
             $("#editModal .modal-dialog #standardID").val(id);
             $("#editModal .modal-dialog #title").val(title);
             $("#editModal .modal-dialog #description").val(description);
-            $("#editModal .modal-dialog #tag_name").val(tag_name);
+            $("#editModal .modal-dialog #subject_tag").val(subject_tag);
+            $("#editModal .modal-dialog #standard_tag").val(standard_tag);
             $('#editModal .modal-dialog #class_id option[value="' + class_name + '"]').attr("selected",
                 "selected");
             $("#editModal .modal-dialog #edit_video_url").val(video_url);

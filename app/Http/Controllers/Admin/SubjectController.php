@@ -51,7 +51,7 @@ class SubjectController extends Controller
             // $standard = ClassCategory::find($request->classCategory_id);
             // $requestData['classCategory_id'] = $standard;
             $success = Subject::create($requestData);
-            return Redirect::route('admin.subjects')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.subjects')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -77,7 +77,7 @@ class SubjectController extends Controller
             }
             // dd($requestData);
             Subject::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.subjects')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.subjects')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -85,7 +85,7 @@ class SubjectController extends Controller
     public function deleteSubject($id)
     {
         Subject::where('id', $id)->delete();
-        return Redirect::route('admin.subjects')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.subjects')->with('success', 'Updated Successfully!');
     }
 
     // get standard by Class Category

@@ -100,7 +100,7 @@
                                 <div class="card-body">
 
                                     <label for="maskPhone" class="form-label">Gallery Category</label>
-                                    <select class="form-control mb-2" id="category_id" required>
+                                    <select class="form-control mb-2" name="category_id" id="category_id" required>
                                         <option disabled selected> Please select Category</option>
                                         @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>

@@ -53,8 +53,9 @@
                                                     <th>Address </th>
                                                     <th>Address 1 </th>
                                                     <th>Zip Code </th>
-                                                    <th>City</th>
+
                                                     <th>State</th>
+                                                    <th>City</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -127,7 +128,7 @@
 
                                 <div class="form-group">
                                     <label for="email-1">Mobile</label>
-                                    <input type="text" class="form-control allow_numeric" name="mobile" maxlength="10"
+                                    <input type="text" class="form-control allow_numeric" name="mobile"
                                         value="{{ old('mobile') }}" required>
                                 </div>
                                 <div class="form-group">
@@ -208,7 +209,7 @@
                                     <div class="form-group">
                                         <label for="email-1">Mobile</label>
                                         <input type="text" id="mobile" class="form-control allow_numeric"
-                                            maxlength="10" name="mobile" value="{{ old('mobile') }}" required>
+                                            name="mobile" value="{{ old('mobile') }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="email-1">Email</label>

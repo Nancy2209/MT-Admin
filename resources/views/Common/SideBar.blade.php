@@ -3,11 +3,11 @@
     <div class="h-100 flex-column d-flex" data-simplebar>
         <!--Aside-logo-->
         <div class="aside-logo p-3 position-relative">
-            <a href="index.html" class="d-block pe-2">
+            <a href="{{ route('admin.dashboard') }}" class="d-block pe-2">
                 <div class="d-flex align-items-center flex-no-wrap text-truncate">
                     <!--Sidebar-icon-->
                     {{-- <span class="sidebar-icon fs-5 lh-1 text-white rounded-circle bg-primary"> --}}
-                    <img src="{{ asset('../assets/media/avatars/mt-logo.jpeg') }}">
+                    <img src="{{ asset('/assets/media/avatars/mt-logo.jpeg') }}">
                     {{-- </span> --}}
                     {{-- <span class="sidebar-text">
                         <!--Sidebar-text-->
@@ -155,7 +155,7 @@
 
                     <li class="nav-item">
                         <a data-bs-toggle="collapse"
-                            class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.boardOfDirectors' || Route::current()->getName() == 'admin.keyManagement' || Route::current()->getName() == 'admin.boardCommittee' ? '' : '' }}"
+                            class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.boardOfDirectors' || Route::current()->getName() == 'admin.keyManagement' || Route::current()->getName() == 'admin.boardCommittee' || Route::current()->getName() == 'admin.boardDetail' ? '' : '' }}"
                             aria-expanded="false" href="#ui-pages2">
                             <span class="sidebar-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
@@ -168,11 +168,15 @@
                             <span class="sidebar-text">Management</span>
                         </a>
                         <ul id="ui-pages2"
-                            class="sidebar-dropdown list-unstyled collapse {{ Route::current()->getName() == 'admin.boardOfDirectors' || Route::current()->getName() == 'admin.keyManagement' || Route::current()->getName() == 'admin.boardCommittee' ? 'show' : '' }}">
+                            class="sidebar-dropdown list-unstyled collapse {{ Route::current()->getName() == 'admin.boardOfDirectors' || Route::current()->getName() == 'admin.keyManagement' || Route::current()->getName() == 'admin.boardCommittee' || Route::current()->getName() == 'admin.boardDetail' ? 'show' : '' }}">
 
                             <li class="sidebar-item"><a
                                     class="sidebar-link {{ Route::current()->getName() == 'admin.boardOfDirectors' ? 'active' : '' }}"
                                     href="{{ route('admin.boardOfDirectors') }}">Board of Directors</a></li>
+                            <li class="sidebar-item"><a
+                                    class="sidebar-link {{ Route::current()->getName() == 'admin.boardDetail' ? 'active' : '' }}"
+                                    href="{{ route('admin.boardDetail') }} ">Board Directors Other Details</a>
+                            </li>
                             <li class="sidebar-item"><a
                                     class="sidebar-link {{ Route::current()->getName() == 'admin.keyManagement' ? 'active' : '' }}"
                                     href="{{ route('admin.keyManagement') }} ">Key Management</a>
@@ -380,7 +384,7 @@
                         <a href="{{ route('admin.we.offer') }}" data-bs-toggle="" aria-expanded="false"
                             class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.we.offer' ? 'active' : '' }}">
                             <span class="sidebar-icon">
-                                <i class="fa fa-solid fa-address-book"></i>
+                                <i class="fa fa-solid fa-gift"></i>
                             </span>
                             <!--Sidebar nav text-->
                             <span class="sidebar-text">Offers</span>
@@ -391,12 +395,41 @@
                         <a href="{{ route('admin.student.hear') }}" data-bs-toggle="" aria-expanded="false"
                             class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.student.hear' ? 'active' : '' }}">
                             <span class="sidebar-icon">
-                                <i class="fa fa-solid fa-address-book"></i>
+                                {{-- <i class="fa fa-solid fa-ear-listen"></i>
+                                <i class="fa-light fa-ear-listen"></i> --}}
+                                {{-- <i class="fa fa-solid fa-ear-listen"></i> --}}
+                                {{-- <i class="fa fa-solid fa-buffer"></i> --}}
+
+                                <i class="fa fa-solid fa-rss-square"></i>
                             </span>
                             <!--Sidebar nav text-->
                             <span class="sidebar-text">Student Hear</span>
                         </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.socail.media') }}" data-bs-toggle="" aria-expanded="false"
+                            class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.socail.media' ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa fa-solid fa-share"></i>
+                            </span>
+                            <!--Sidebar nav text-->
+                            <span class="sidebar-text">Social Media</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('admin.meta.tag') }}" data-bs-toggle="" aria-expanded="false"
+                            class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.meta.tag' ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa fa-solid fa-tag"></i>
+                                {{-- <i class="fa fa-duotone fa-comet"></i> --}}
+                            </span>
+                            <!--Sidebar nav text-->
+                            <span class="sidebar-text">Meta Tags</span>
+                        </a>
+                    </li>
+
 
                 </ul>
             </nav>

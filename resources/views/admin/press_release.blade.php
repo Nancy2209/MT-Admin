@@ -137,7 +137,7 @@
                                         <input class="form-control" type="file" name="file_name" id="filename"
                                             accept=".pdf" required>
                                     </div>
-                                    <span style="color: red">(File should be PDF and max size 1mb only.)</span>
+                                    <span style="color: red">(File should be PDF and max size 5mb only.)</span>
                                 </div>
                             </div>
 
@@ -195,7 +195,7 @@
                                             accept=".pdf">
                                         <a href="" id="investorFile" target="_blank">View File</a>
                                     </div>
-                                    <span style="color: red">(File should be PDF and max size 1mb only.)</span>
+                                    <span style="color: red">(File should be PDF and max size 5mb only.)</span>
                                 </div>
                             </div>
                             <div class="modal-footer">

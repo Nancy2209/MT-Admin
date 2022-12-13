@@ -10,7 +10,7 @@ class DemoVideo extends Model
     use HasFactory;
 
     protected $fillable = [
-        'class_id', 'title', 'video_url', 'video_name', 'description', 'tag_name'
+        'class_id', 'title', 'video_url', 'video_name', 'description', 'subject_tag', 'standard_tag',
     ];
 
     public function classCategory()

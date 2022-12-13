@@ -96,7 +96,7 @@ class UserController extends Controller
                 $requestData['profile_image'] = Storage::disk('public')->url($profileName);
             }
             $success = User::create($requestData);
-            return Redirect::route('admin.userlist')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.userlist')->with('success', 'Updated Successfully!');
         }
     }
 

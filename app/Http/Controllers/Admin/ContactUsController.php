@@ -37,7 +37,7 @@ class ContactUsController extends Controller
         } else {
 
             $success = ContactUs::create($requestData);
-            return Redirect::route('admin.contacts')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.contacts')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -58,7 +58,7 @@ class ContactUsController extends Controller
         } else {
             unset($requestData['_token']);
             ContactUs::where('id', $request->id)->update($requestData);
-            return Redirect::route('admin.contacts')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.contacts')->with('success', 'Updated Successfully!');
         }
     }
 }

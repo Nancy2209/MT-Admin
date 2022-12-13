@@ -37,6 +37,8 @@ Route::get('committes-list', '\App\Http\Controllers\Api\APIController@boarOfCOmm
 
 Route::get('key-management-list', '\App\Http\Controllers\Api\APIController@keyManagement')->name('keymanagement.list');
 
+Route::get('board-detail-list', '\App\Http\Controllers\Api\APIController@boardDetail')->name('board.detail.list');
+
 Route::get('awards-list', '\App\Http\Controllers\Api\APIController@awardsData')->name('awards.list');
 
 Route::get('awards-detail-list/{id}', '\App\Http\Controllers\Api\APIController@awardsDetail')->name('awards.detail.list');
@@ -59,6 +61,10 @@ Route::get('job-data-list/{id}', '\App\Http\Controllers\Api\APIController@jobDat
 
 Route::post('enquiry-post', '\App\Http\Controllers\Api\APIController@enquiryForm')->name('enquiy.post');
 
+
+Route::get('offer-list', '\App\Http\Controllers\Api\APIController@offersList')->name('offer.list');
+
+Route::get('student-hear-list', '\App\Http\Controllers\Api\APIController@studentHearList')->name('student.hear.list');
 
 Route::get('category-list', '\App\Http\Controllers\Api\APIController@categoryList')->name('category.list');
 
@@ -86,11 +92,19 @@ Route::get('default-category-list', '\App\Http\Controllers\Api\APIController@def
 
 Route::get('default-demo-list', '\App\Http\Controllers\Api\APIController@defaultDemoDetails')->name('default.demo.list');
 
+Route::get('default-intro-list', '\App\Http\Controllers\Api\APIController@defaultIntroDetails')->name('default.intro.list');
+
+Route::get('intro-data/{id}', '\App\Http\Controllers\Api\APIController@introData')->name('intro.data');
+
+Route::get('meta-tag-list', '\App\Http\Controllers\Api\APIController@metaTags')->name('meta.tag.list');
+
 Route::post('course-search', '\App\Http\Controllers\Api\APIController@categorySearch')->name('course.search');
 
 Route::post('invester-search', '\App\Http\Controllers\Api\APIController@investerSearch')->name('invester.search');
 
 Route::post('report-search', '\App\Http\Controllers\Api\APIController@reportSearch')->name('report.search');
+
+Route::get('social-link', '\App\Http\Controllers\Api\APIController@socialLinkList')->name('social.link');
 
 
 Route::post('email-subscription', '\App\Http\Controllers\Api\APIController@emailSubscription')->name('email.subscription');

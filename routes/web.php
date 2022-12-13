@@ -105,6 +105,12 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('update-boardOfDirector', '\App\Http\Controllers\Admin\BoardOfDirectorController@updateMember')->name('admin.update.boardOfDirectors');
     Route::get('delete-boardOfDirector/{id}', '\App\Http\Controllers\Admin\BoardOfDirectorController@deleteMember')->name('delete.boardOfDirectors');
 
+    Route::get('boardDetail-list', '\App\Http\Controllers\Admin\BoardDetailsController@index')->name('admin.boardDetail');
+    Route::post('add-boardDetail', '\App\Http\Controllers\Admin\BoardDetailsController@addKeyMember')->name('admin.add.boardDetail');
+    Route::post('update-boardDetail', '\App\Http\Controllers\Admin\BoardDetailsController@updateKeyMember')->name('admin.update.boardDetail');
+    Route::get('delete-boardDetail/{id}', '\App\Http\Controllers\Admin\BoardDetailsController@deleteKeyMember')->name('delete.boardDetail');
+
+
     Route::get('keyManagement-list', '\App\Http\Controllers\Admin\KeyManagementController@index')->name('admin.keyManagement');
     Route::post('add-keyManagement', '\App\Http\Controllers\Admin\KeyManagementController@addKeyMember')->name('admin.add.keyManagement');
     Route::post('update-keyManagement', '\App\Http\Controllers\Admin\KeyManagementController@updateKeyMember')->name('admin.update.keyManagement');
@@ -177,17 +183,17 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('delete-media/{id}', '\App\Http\Controllers\Admin\MediaController@deleteMedia')->name('delete.media');
 
     // Gallary Category route
-    Route::get('/gallery-category', '\App\Http\Controllers\Admin\DashboardController@galleryCategory')->name('admin.gallery.category');
-    Route::post('/add/gallery-category', '\App\Http\Controllers\Admin\DashboardController@addGalleryCategory')->name('admin.add.gallery.category');
-    Route::post('/edit/gallery-category', '\App\Http\Controllers\Admin\DashboardController@editGalleryCategory')->name('admin.edit.gallery.category');
-    Route::get('/delete/gallery-category/{id}', '\App\Http\Controllers\Admin\DashboardController@deleteGalleryCategory')->name('admin.delete.gallery.category');
+    Route::get('/gallery-category', '\App\Http\Controllers\Admin\HomeController@galleryCategory')->name('admin.gallery.category');
+    Route::post('/add/gallery-category', '\App\Http\Controllers\Admin\HomeController@addGalleryCategory')->name('admin.add.gallery.category');
+    Route::post('/edit/gallery-category', '\App\Http\Controllers\Admin\HomeController@editGalleryCategory')->name('admin.edit.gallery.category');
+    Route::get('/delete/gallery-category/{id}', '\App\Http\Controllers\Admin\HomeController@deleteGalleryCategory')->name('admin.delete.gallery.category');
 
 
     // Gallary route
-    Route::get('/gallary', '\App\Http\Controllers\Admin\DashboardController@gallary')->name('admin.gallary');
-    Route::post('/add/gallary', '\App\Http\Controllers\Admin\DashboardController@addGallary')->name('admin.add.gallary');
-    Route::post('/edit/gallary', '\App\Http\Controllers\Admin\DashboardController@editGallary')->name('admin.edit.gallary');
-    Route::get('/delete/gallary/{id}', '\App\Http\Controllers\Admin\DashboardController@deleteGallary')->name('admin.delete.gallary');
+    Route::get('/gallary', '\App\Http\Controllers\Admin\HomeController@gallary')->name('admin.gallary');
+    Route::post('/add/gallary', '\App\Http\Controllers\Admin\HomeController@addGallary')->name('admin.add.gallary');
+    Route::post('/edit/gallary', '\App\Http\Controllers\Admin\HomeController@editGallary')->name('admin.edit.gallary');
+    Route::get('/delete/gallary/{id}', '\App\Http\Controllers\Admin\HomeController@deleteGallary')->name('admin.delete.gallary');
 
     // privacy route
     Route::get('/privacy_policy', '\App\Http\Controllers\Admin\LegalController@privacyPolicy')->name('admin.privacy_policy');
@@ -204,6 +210,14 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/add/job', 'App\Http\Controllers\Admin\HomeController@addJobs')->name('admin.add.job');
     Route::post('/edit/job', '\App\Http\Controllers\Admin\HomeController@editJobs')->name('admin.edit.job');
     Route::get('delete-job/{id}', '\App\Http\Controllers\Admin\HomeController@deleteJobs')->name('delete.job');
+
+
+    // social media route
+    Route::get('/social-media', 'App\Http\Controllers\Admin\SocialMediaController@socialMedia')->name('admin.socail.media');
+    Route::post('/add/social-media', 'App\Http\Controllers\Admin\SocialMediaController@addSocialMedia')->name('admin.add.socail.media');
+    Route::post('/edit/social-media', '\App\Http\Controllers\Admin\SocialMediaController@editSocialMedia')->name('admin.edit.socail.media');
+    Route::get('delete-social-media/{id}', '\App\Http\Controllers\Admin\SocialMediaController@deleteSocialMedia')->name('delete.socail.media');
+
 
     // career video route
     Route::get('/gallery-video', '\App\Http\Controllers\Admin\HomeController@galleryVideo')->name('admin.gallery.video');
@@ -281,7 +295,15 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/edit/student-hear', '\App\Http\Controllers\Admin\WeOfferController@editStudentHear')->name('admin.update.student.hear');
     Route::get('delete-student-hear/{id}', '\App\Http\Controllers\Admin\WeOfferController@deleteStudentHear')->name('delete.student.hear');
 
+    // meta tags route
+    Route::get('/meta-tags', '\App\Http\Controllers\Admin\MetaTagsController@metaTags')->name('admin.meta.tag');
+    Route::post('/add/meta-tags', '\App\Http\Controllers\Admin\MetaTagsController@addMetaTags')->name('admin.add.meta.tag');
+    Route::post('/edit/meta-tags', '\App\Http\Controllers\Admin\MetaTagsController@editMetaTags')->name('admin.update.meta.tag');
+    Route::get('delete-meta-tags/{id}', '\App\Http\Controllers\Admin\MetaTagsController@deleteMetaTags')->name('delete.meta.tag');
+
     // theme change api
+
+    Route::post('/check-unique-city', 'App\Http\Controllers\Admin\HomeController@checkUniqueCity')->name('admin.check.city');
 
     Route::post('/theme-change', 'App\Http\Controllers\Admin\HomeController@themeChange')->name('admin.theme.change');
 

@@ -42,7 +42,7 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="table-responsive">
-                                        <table id="datatable" class="table mt-0 table-striped table-card table-nowrap">
+                                        <table id="" class="table mt-0 table-striped table-card table-nowrap">
                                             <thead class="text-uppercase small text-muted">
                                                 <tr>
                                                     <th>Decriptions</th>

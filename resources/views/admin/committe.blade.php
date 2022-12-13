@@ -54,9 +54,7 @@
                                                     <tr>
                                                         <td>{{ $committe->title }} </td>
 
-                                                        <td>{{ $committe->name }}
-
-                                                        </td>
+                                                        <td>{{ $committe->name }}</td>
                                                         <td>{{ $committe->designation }} </td>
 
 
@@ -106,12 +104,24 @@
                                     <label for="maskPhone" class="form-label">Title</label>
                                     <input class="form-control mb-2" type="text" placeholder="Title" name="title"
                                         required>
-                                    <label for="maskPhone" class="form-label">Board Member Name</label>
-                                    <input class="form-control mb-2" type="text" placeholder="Name" name="name"
-                                        required>
-                                    <label for="maskPhone" class="form-label">Designation</label>
-                                    <input class="form-control mb-2" type="text" placeholder="Designation"
-                                        name="designation" required>
+                                    <div class="customer_records">
+                                        <label for="maskPhone" class="form-label">Board Member Name</label>
+                                        <input class="form-control mb-2" type="text" placeholder="Name" name="name"
+                                            required>
+                                        <label for="maskPhone" class="form-label">Designation</label>
+                                        <input class="form-control mb-2" type="text" placeholder="Designation"
+                                            name="designation" required>
+
+
+                                    </div>
+                                    {{-- <div class="col-md-6">
+                                        <div class="form-group change">
+                                            <label for="">&nbsp;</label><br />
+                                            <a class="btn btn-success add-more">+ Add More</a>
+                                        </div>
+                                    </div> --}}
+                                    {{-- <div class="customer_records_dynamic"></div> --}}
+
 
 
                                 </div>
@@ -140,7 +150,7 @@
 
                             @csrf
                             <div class="modal-body">
-                                <div class="card-body">
+                                <div class="card-body ">
                                     <input type="hidden" name="id" id="committe_id">
                                     <label for="maskPhone" class="form-label">Title</label>
                                     <input class="form-control mb-2" type="text" placeholder="Title" name="title"
@@ -167,6 +177,23 @@
         </section>
     </div>
     <script src="{{ asset('/login/plugins/jquery/jquery.min.js') }}"></script>
+    <script>
+        $(".add-more").click(function() {
+            newRowAdd =
+                '<div id="customer_records"> <label for="maskPhone" class="form-label">Board Member Name</label>' +
+                '<input class="form-control mb-2" type="text" placeholder="Name" name="board[name][]" required>' +
+                '<label for="maskPhone" class="form-label">Designation</label>' +
+                '<input class="form-control mb-2" type="text" placeholder="Designation" name="board[designation][]" required>' +
+                '<button class="btn btn-danger" id="DeleteRow" type="button">' +
+                '<i class="bi bi-trash"></i> Delete</button></div>';
+
+            $('.customer_records').append(newRowAdd);
+        });
+
+        $("body").on("click", "#DeleteRow", function() {
+            $(this).parents("#customer_records").remove();
+        })
+    </script>
 
     <script>
         $(".js-edit-logo").on('click', function(e) {

@@ -58,7 +58,7 @@ class CourseDetailController extends Controller
                 $requestData['image'] = $profileName;
             }
             $success = CourseDetail::create($requestData);
-            return Redirect::route('admin.coursedetail')->with('success', 'successfully submitted!');
+            return Redirect::route('admin.coursedetail')->with('success', 'Updated Successfully!');
         }
     }
 
@@ -92,7 +92,7 @@ class CourseDetailController extends Controller
                 }
                 unset($requestData['_token']);
                 $success = CourseDetail::where('id', $course->id)->update($requestData);
-                return Redirect::route('admin.coursedetail')->with('success', 'successfully submitted!');
+                return Redirect::route('admin.coursedetail')->with('success', 'Updated Successfully!');
             } else {
                 return Redirect::route('admin.coursedetail')->with('success', 'Course not found!');
             }
@@ -102,6 +102,6 @@ class CourseDetailController extends Controller
     public function deleteCourseDetail($id)
     {
         CourseDetail::where('id', $id)->delete();
-        return Redirect::route('admin.coursedetail')->with('success', 'successfully submitted!');
+        return Redirect::route('admin.coursedetail')->with('success', 'Updated Successfully!');
     }
 }
