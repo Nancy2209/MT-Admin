@@ -56,6 +56,7 @@
 
                                                     <th>State</th>
                                                     <th>City</th>
+                                                    <th>Area</th>
                                                     <th>Action</th>
                                                 </tr>
                                             </thead>
@@ -71,6 +72,7 @@
                                                         <td>{{ @$center->zip_code }}</td>
                                                         <td>{{ @$center->state->name }}</td>
                                                         <td>{{ @$center->city->name }}</td>
+                                                        <td>{{ @$center->area }}</td>
 
                                                         <td> <a class="js-edit-logo" data-bs-toggle="modal"
                                                                 href="#editModal" style="cursor:pointer" title="edit state"
@@ -81,9 +83,10 @@
                                                                 data-address="{{ $center->address }}"
                                                                 data-address1="{{ $center->address1 }}"
                                                                 data-zipcode="{{ $center->zip_code }}"
-                                                                data-state="{{ $center->state->id }}"
-                                                                data-city="{{ $center->city->id }}"><i
-                                                                    class="fa fa-edit"></i></a>
+                                                                data-state="{{ @$center->state->id }}"
+                                                                data-city="{{ @$center->city->id }}"
+                                                                data-area="{{ @$center->area }}">
+                                                                <i class="fa fa-edit"></i></a>
                                                             <a class="delete-material"
                                                                 href="{{ route('delete.center', @$center->id) }}"
                                                                 title="delete logo"
@@ -163,6 +166,10 @@
                                     <select name="city_id" class="form-control city-data" required>
 
                                     </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-1">Area</label>
+                                    <textarea class="form-control" name="area" requireds></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="email-1">Zip</label>
@@ -245,6 +252,10 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="email-1">Area</label>
+                                        <textarea class="form-control" id="area" name="area" requireds></textarea>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="email-1">Zip</label>
                                         <input type="text" id="zip" class="form-control allow_numeric"
                                             maxlength="6" name="zip_code" value="{{ old('zip') }}" required>
@@ -277,6 +288,7 @@
             var zip = $(this).attr('data-zipcode');
             var state = $(this).attr('data-state');
             var city = $(this).attr('data-city');
+            var area = $(this).attr('data-area');
             getCity(state);
 
             $("#editModal .modal-dialog #center_id").val(id);
@@ -286,6 +298,7 @@
             $("#editModal .modal-dialog #address").val(address);
             $("#editModal .modal-dialog #address1").val(address1);
             $("#editModal .modal-dialog #zip").val(zip);
+            $("#editModal .modal-dialog #area").val(area);
             $('#editModal .modal-dialog #state_id option[value="' + state + '"]').attr("selected",
                 "selected");
             $('#editModal .modal-dialog #city_id option[value="' + city + '"]').attr("selected",

@@ -185,9 +185,6 @@ class APIController extends Controller
             $aboutUs = AboutUs::all();
             $last_id = AboutUs::latest()->first()->id;
             $first_id = AboutUs::first()->id;
-            // $aboutUs['last_id'] = $last_id;
-            // $aboutUs['first_id'] = $first_id;
-            // dd($aboutUs);
 
             $response = ['success' => true, 'message' => 'AboutUs get successfully', 'data' => $aboutUs, 'last_id' => $last_id, 'first_id' => $first_id];
             return Response::json($response, 200);
@@ -338,7 +335,9 @@ class APIController extends Controller
             $defaultCourse = [];
             $categoryID = CourseType::first();
             if ($categoryID) {
-                $defaultCourse = CourseDetail::where('course_id', $categoryID->id)->get();
+                $defaultCourse = CourseDetail::where('course_id', $categoryID->id)->with(['courseType' => function ($query) {
+                    $query->select('id', 'name');
+                }])->select('id', 'title', 'description', 'tag_name', 'image', 'course_id')->get();
             }
             $response = ['success' => true, 'message' => 'Default successfully', 'data' => $defaultCourse];
             return Response::json($response, 200);
@@ -354,7 +353,7 @@ class APIController extends Controller
             $defaultDemo = [];
             $demoID = DemoVideo::first();
             if ($demoID) {
-                $defaultDemo = DemoVideo::where('class_id', $demoID->class_id)->get();
+                $defaultDemo = DemoVideo::where('class_id', $demoID->class_id)->select('class_id', 'title', 'video_url', 'video_name', 'description', 'subject_tag', 'standard_tag')->get();
             }
             $response = ['success' => true, 'message' => 'Default demo successfully', 'data' => $defaultDemo];
             return Response::json($response, 200);
@@ -436,7 +435,7 @@ class APIController extends Controller
     public function categoryList()
     {
         try {
-            $categories = CourseType::all();
+            $categories = CourseType::select('id', 'name')->get();
             $response = ['success' => true, 'message' => 'Category get successfully', 'data' => $categories];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -448,7 +447,7 @@ class APIController extends Controller
     public function categoryDetail($id)
     {
         try {
-            $categoryDetails = CourseDetail::where('course_id', $id)->get();
+            $categoryDetails = CourseDetail::where('course_id', $id)->select('title', 'image', 'description')->get();
             $response = ['success' => true, 'message' => 'Category Details get successfully', 'data' => $categoryDetails];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -460,7 +459,9 @@ class APIController extends Controller
     public function demoVideoCategory()
     {
         try {
-            $demoVideos = DemoVideo::with('classCategory')->groupBy('class_id')->distinct()->get();
+            $demoVideos = DemoVideo::with(['classCategory' => function ($query) {
+                $query->select('id', 'name');
+            }])->select('id', 'title', 'video_url', 'video_name', 'description', 'subject_tag', 'standard_tag', 'class_id')->groupBy('class_id')->distinct()->get();
             $response = ['success' => true, 'message' => 'Demo video get successfully', 'data' => $demoVideos];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -472,7 +473,7 @@ class APIController extends Controller
     public function demoVideoDetails($id)
     {
         try {
-            $demoVideos = DemoVideo::where('class_id', $id)->get();
+            $demoVideos = DemoVideo::where('class_id', $id)->select('id', 'title', 'video_url', 'video_name', 'description', 'subject_tag', 'standard_tag')->get();
             $response = ['success' => true, 'message' => 'Demo video detail get successfully', 'data' => $demoVideos];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -484,7 +485,7 @@ class APIController extends Controller
     public function topperList()
     {
         try {
-            $toppers = Topper::all();
+            $toppers = Topper::select('name', 'percentage', 'description', 'image')->get();
             $response = ['success' => true, 'message' => 'Topper detail get successfully', 'data' => $toppers];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -496,7 +497,7 @@ class APIController extends Controller
     public function ourAchivementList()
     {
         try {
-            $achivements = Achievments::first();
+            $achivements = Achievments::select('student_ratio', 'faculty_ratio', 'institute_ratio', 'school_ratio', 'college_ratio')->first();
             $response = ['success' => true, 'message' => 'Achivements get successfully', 'data' => $achivements];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -509,7 +510,7 @@ class APIController extends Controller
     public function categoryBoardStandards($id)
     {
         try {
-            $boardsStandards = ClassCategory::where('course_id', $id)->get();
+            $boardsStandards = ClassCategory::where('course_id', $id)->select('id', 'name', 'board_name')->get();
             $response = ['success' => true, 'message' => 'Boards and Standards get successfully', 'data' => $boardsStandards];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -521,7 +522,7 @@ class APIController extends Controller
     public function cityList()
     {
         try {
-            $cities = City::all();
+            $cities = City::select('id', 'name')->get();
             $response = ['success' => true, 'message' => 'Cities get successfully', 'data' => $cities];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -533,7 +534,7 @@ class APIController extends Controller
     public function areaData($id)
     {
         try {
-            $areas = Center::where('city_id', $id)->get();
+            $areas = Center::where('city_id', $id)->select('id', 'area')->whereNotNull('area')->get();
             $response = ['success' => true, 'message' => 'Areas get successfully', 'data' => $areas];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -550,8 +551,7 @@ class APIController extends Controller
             $centers->where('city_id', $request->city);
         }
         if (isset($request->area) && $request->area) {
-            $centers->Orwhere('address', 'like', '%' . $request->area . '%');
-            $centers->Orwhere('address1', 'like', '%' . $request->area . '%');
+            $centers->where('area', 'like', '%' . $request->area . '%');
         }
         $centerData = $centers->get();
         // dd(\DB::getQueryLog());
@@ -601,7 +601,7 @@ class APIController extends Controller
     public function offersList()
     {
         try {
-            $offers = WeOffer::all();
+            $offers = WeOffer::select('title', 'image', 'description', 'link_url')->get();
             $response = ['success' => true, 'message' => 'Offer get successfully', 'data' => $offers];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -613,7 +613,7 @@ class APIController extends Controller
     public function studentHearList()
     {
         try {
-            $hears = StudentHear::all();
+            $hears = StudentHear::select('name', 'image', 'description', 'designation')->get();
             $response = ['success' => true, 'message' => 'Student hears get successfully', 'data' => $hears];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -675,7 +675,7 @@ class APIController extends Controller
     public function metaTags()
     {
         try {
-            $metaTags = MetaTag::all();
+            $metaTags = MetaTag::select('page_name', 'mata_title', 'mata_keyboard', 'mata_description', 'canonical_tag')->get();
             $response = ['success' => true, 'message' => 'Meta tags successfully', 'data' => $metaTags];
             return Response::json($response, 200);
         } catch (Exception $e) {
@@ -687,7 +687,7 @@ class APIController extends Controller
     public function socialLinkList()
     {
         try {
-            $socialLink = SocialMedia::all();
+            $socialLink = SocialMedia::select('image', 'name', 'link')->get();
             $response = ['success' => true, 'message' => 'Social link successfully', 'data' => $socialLink];
             return Response::json($response, 200);
         } catch (Exception $e) {

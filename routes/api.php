@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::middleware('throttle:500,1')->group(function () {
 
 Route::get('gallary-list', '\App\Http\Controllers\Api\APIController@gallaryList')->name('gallary.list');
 
@@ -108,3 +109,4 @@ Route::get('social-link', '\App\Http\Controllers\Api\APIController@socialLinkLis
 
 
 Route::post('email-subscription', '\App\Http\Controllers\Api\APIController@emailSubscription')->name('email.subscription');
+// });

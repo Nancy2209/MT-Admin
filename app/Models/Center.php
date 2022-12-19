@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Center extends Model
 {
     use HasFactory;
-    protected $fillable = ['state_id', 'city_id', 'name', 'code', 'mobile', 'email', 'address', 'address1', 'zip_code'];
+    protected $fillable = ['state_id', 'city_id', 'name', 'code', 'mobile', 'email', 'address', 'address1', 'zip_code', 'area'];
 
     public function state()
     {
