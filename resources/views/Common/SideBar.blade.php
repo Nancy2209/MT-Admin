@@ -430,6 +430,17 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{ route('admin.enquiry') }}" data-bs-toggle="" aria-expanded="false"
+                            class="nav-link d-flex align-items-center text-truncate {{ Route::current()->getName() == 'admin.enquiry' ? 'active' : '' }}">
+                            <span class="sidebar-icon">
+                                <i class="fa fa-solid fa-question-circle"></i>
+                                {{-- <i class="fa fa-duotone fa-comet"></i> --}}
+                            </span>
+                            <!--Sidebar nav text-->
+                            <span class="sidebar-text">Your Enquiry</span>
+                        </a>
+                    </li>
 
                 </ul>
             </nav>

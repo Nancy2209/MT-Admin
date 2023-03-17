@@ -100,16 +100,16 @@
                             @csrf
                             <div class="modal-body">
                                 <label for="maskPhone" class="form-label">Robomate Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text"
-                                    placeholder="Robomate Enquiry Number" name="robomate_enquiry" required>
+                                <input class="form-control mb-2 " type="text" placeholder="Robomate Enquiry Number"
+                                    name="robomate_enquiry" required>
 
                                 <label for="maskPhone" class="form-label">Product Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text"
-                                    placeholder="Product Enquiry Number" name="product_enquiry" required>
+                                <input class="form-control mb-2 " type="text" placeholder="Product Enquiry Number"
+                                    name="product_enquiry" required>
 
                                 <label for="maskPhone" class="form-label">Franchise Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text"
-                                    placeholder="Franchise Enquiry Number" name="franchise_enquiry" required>
+                                <input class="form-control mb-2 " type="text" placeholder="Franchise Enquiry Number"
+                                    name="franchise_enquiry" required>
 
                             </div>
 
@@ -139,17 +139,16 @@
                             <input type="hidden" name="id" id="contactid">
                             <div class="modal-body">
                                 <label for="maskPhone" class="form-label">Robomate Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text"
-                                    @error('phone') is-invalid @enderror" placeholder="Robomate Enquiry Number"
-                                    name="robomate_enquiry" id="robomate_enquiry" required>
-
-                                <label for="maskPhone" class="form-label">Product Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text"
-                                    placeholder="Product Enquiry Number" name="product_enquiry" id="product_enquiry"
+                                <input class="form-control mb-2 " type="text" @error('phone') is-invalid @enderror"
+                                    placeholder="Robomate Enquiry Number" name="robomate_enquiry" id="robomate_enquiry"
                                     required>
 
+                                <label for="maskPhone" class="form-label">Product Enquiry Number</label>
+                                <input class="form-control mb-2" type="text" placeholder="Product Enquiry Number"
+                                    name="product_enquiry" id="product_enquiry" required>
+
                                 <label for="maskPhone" class="form-label">Franchise Enquiry Number</label>
-                                <input class="form-control mb-2 allow_numeric" type="text" placeholder="title"
+                                <input class="form-control mb-2 " type="text" placeholder="Franchise Enquiry Numbe"
                                     name="franchise_enquiry" id="franchise_enquiry" required>
 
                             </div>

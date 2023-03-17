@@ -155,7 +155,7 @@
                                     <h6>Video URL</h6>
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
-                                            name="video_url" id="video_url">
+                                            name="video_url" id="video_url" required>
                                         <span style="color: red">In case of Youtube video link, please use embeded code
                                             of the link. such as : <a href="https://www.youtube.com/embed/s6QL1RrGzSM"
                                                 target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>
@@ -235,7 +235,7 @@
                                     <h6>Video URL</h6>
                                     <div class="mb-0">
                                         <input class="form-control mb-2" type="url" placeholder="Video Url"
-                                            name="video_url" id="edit_video_url">
+                                            name="video_url" id="edit_video_url" required>
                                         <span style="color: red"> In case of Youtube video link, please use embeded code
                                             of the link. such as :<a href="https://www.youtube.com/embed/s6QL1RrGzSM"
                                                 target="_blank">https://www.youtube.com/embed/s6QL1RrGzSM</a> </span>

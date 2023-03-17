@@ -226,7 +226,7 @@ class InvestorRelationsController extends Controller
         $rules = [
             'file_name' =>  'required',
             'file_title' =>  'required',
-            'date' =>  'required',
+            // 'date' =>  'required',
             'invest_quater' =>  'required',
             'release_category_id' =>  'required',
         ];
@@ -255,7 +255,7 @@ class InvestorRelationsController extends Controller
         $rules = [
             'id' => 'required',
             'file_title' =>  'required',
-            'date' =>  'required',
+            // 'date' =>  'required',
             'invest_quater' =>  'required',
             'release_category_id' =>  'required',
         ];

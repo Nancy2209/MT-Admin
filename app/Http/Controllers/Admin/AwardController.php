@@ -99,4 +99,6 @@ class AwardController extends Controller
         Award::where('id', $id)->delete();
         return Redirect::route('admin.award')->with('success', 'Updated Successfully!');
     }
+
+    
 }

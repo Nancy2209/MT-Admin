@@ -24,9 +24,9 @@ class ContactUsController extends Controller
     public function addContact(Request $request)
     {
         $rules = [
-            'robomate_enquiry' => 'required|min:11|numeric',
-            'product_enquiry' => 'required|min:11|numeric',
-            'franchise_enquiry' => 'required|min:11|numeric',
+            'robomate_enquiry' => 'required',
+            'product_enquiry' => 'required',
+            'franchise_enquiry' => 'required',
         ];
 
         $requestData = $request->all();
@@ -44,9 +44,9 @@ class ContactUsController extends Controller
     public function updateContact(Request $request)
     {
         $rules = [
-            'robomate_enquiry' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'product_enquiry' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
-            'franchise_enquiry' => 'required|regex:/(0)[0-9]/|not_regex:/[a-z]/|min:9',
+            'robomate_enquiry' => 'required',
+            'product_enquiry' => 'required',
+            'franchise_enquiry' => 'required',
 
         ];
 

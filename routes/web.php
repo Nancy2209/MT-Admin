@@ -301,9 +301,18 @@ Route::group(['prefix' => 'admin'], function () {
     Route::post('/edit/meta-tags', '\App\Http\Controllers\Admin\MetaTagsController@editMetaTags')->name('admin.update.meta.tag');
     Route::get('delete-meta-tags/{id}', '\App\Http\Controllers\Admin\MetaTagsController@deleteMetaTags')->name('delete.meta.tag');
 
+
+    // Enquiry List
+    Route::get('/enquiry', '\App\Http\Controllers\Admin\MetaTagsController@enquiry')->name('admin.enquiry');
+    Route::post('/edit/enquiry', '\App\Http\Controllers\Admin\MetaTagsController@editEnquiry')->name('admin.update.enquiry');
+    Route::get('delete-enquiry/{id}', '\App\Http\Controllers\Admin\MetaTagsController@deleteEnquiry')->name('delete.enquiry');
+
+
     // theme change api
 
     Route::post('/check-unique-city', 'App\Http\Controllers\Admin\HomeController@checkUniqueCity')->name('admin.check.city');
+
+    Route::post('/check-unique-state', 'App\Http\Controllers\Admin\HomeController@checkUnique')->name('admin.check.state');
 
     Route::post('/theme-change', 'App\Http\Controllers\Admin\HomeController@themeChange')->name('admin.theme.change');
 

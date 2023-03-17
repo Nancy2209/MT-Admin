@@ -16,6 +16,7 @@ use App\Models\ClassCategory;
 use App\Models\Committee;
 use App\Models\ContactAddress;
 use App\Models\ContactPost;
+use App\Models\ContactUs;
 use App\Models\CorpGovernance;
 use App\Models\CourseDetail;
 use App\Models\CourseType;
@@ -305,6 +306,18 @@ class APIController extends Controller
         }
     }
 
+    public function contactUs()
+    {
+        try {
+            $contactUs = ContactUs::first();
+            $response = ['success' => true, 'message' => 'Contact us get successfully', 'data' => $contactUs];
+            return Response::json($response, 200);
+        } catch (Exception $e) {
+
+            return Response::json(['success' => false, 'message' => $e->getMessage()], 404);
+        }
+    }
+
     public function reportData($id)
     {
         try {
@@ -447,7 +460,7 @@ class APIController extends Controller
     public function categoryDetail($id)
     {
         try {
-            $categoryDetails = CourseDetail::where('course_id', $id)->select('title', 'image', 'description')->get();
+            $categoryDetails = CourseDetail::where('course_id', $id)->select('course_id', 'title', 'description', 'tag_name', 'image')->get();
             $response = ['success' => true, 'message' => 'Category Details get successfully', 'data' => $categoryDetails];
             return Response::json($response, 200);
         } catch (Exception $e) {

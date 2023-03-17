@@ -129,7 +129,7 @@
 
                                     <label for="maskPhone" class="form-label">File Release Date</label>
                                     <input class="form-control mb-2" type="date" placeholder="File Release Date"
-                                        id="date" name="date" required>
+                                        id="date" name="date">
 
 
                                     <label for="maskPhone" class="form-label">File upload</label>
@@ -187,7 +187,7 @@
 
                                     <label for="maskPhone" class="form-label">File Release Date</label>
                                     <input class="form-control mb-2" type="date" placeholder="File Release Date"
-                                        name="date" id="date" required>
+                                        name="date" id="date">
 
                                     <label for="maskPhone" class="form-label">File upload</label>
                                     <div class="mb-0">
@@ -234,10 +234,6 @@
                         required: true,
 
                     },
-                    date: {
-                        required: true,
-
-                    },
                     filename: {
                         required: true,
                         extension: "pdf"
@@ -259,10 +255,6 @@
                         required: true,
                     },
                     invest_quater: {
-                        required: true,
-
-                    },
-                    date: {
                         required: true,
 
                     },

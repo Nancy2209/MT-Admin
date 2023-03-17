@@ -101,8 +101,9 @@
 
                                 <div class="form-group">
                                     <label for="email-1">Name</label>
-                                    <input type="text" class="form-control AlphabetsOnly" name="name"
+                                    <input type="text" class="form-control AlphabetsOnly checkunique" name="name"
                                         value="{{ old('name') }}" required>
+                                    <span class="errorname"></span>
                                 </div>
                             </div>
 
@@ -173,5 +174,30 @@
                 return false;
             }
         });
+    </script>
+    <script>
+        $('.checkunique').on('change', function() {
+            var stateValue = $('.checkunique').val();
+            var _token = $('input[name="_token"]').val();
+            $.ajax({
+                type: "POST",
+                url: '{!! route('admin.check.state') !!}',
+                data: {
+                    state: stateValue,
+                    _token: _token
+                },
+                success: function(data) {
+                    if (data == 'error') {
+                        $('.errorname').text('this state already exist');
+                        $('.errorname').css('color', 'red');
+                        $(':input[type="submit"]').prop('disabled', true);
+                        return false;
+                    } else {
+                        $(':input[type="submit"]').prop('disabled', false);
+                    }
+                }
+            });
+
+        })
     </script>
 @endsection

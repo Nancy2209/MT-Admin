@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\CareerVideo;
+use App\Models\Enquiry;
 use App\Models\Media;
 use App\Models\MetaTag;
 use Illuminate\Support\Facades\Auth;
@@ -75,5 +76,41 @@ class MetaTagsController extends Controller
     {
         MetaTag::where('id', $id)->delete();
         return Redirect::route('admin.meta.tag')->with('success', 'Updated Successfully!');
+    }
+
+    public function enquiry()
+    {
+        $enquires = Enquiry::all();
+        return view('admin.enquiry', compact('enquires'));
+    }
+
+
+    public function editEnquiry(Request $request)
+    {
+        $rules = [
+            'page_name' => 'required',
+            'mata_title' => 'required',
+            'mata_keyboard' => 'required',
+            'mata_description' => 'required',
+        ];
+
+        $requestData = $request->all();
+        $validator = Validator::make($requestData, $rules);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        } else {
+
+            unset($requestData['_token']);
+            $mediaAdd = MetaTag::where('id', $request->id)->update($requestData);
+
+            return Redirect::route('admin.meta.tag')->with('success', 'Updated Successfully!');
+        }
+    }
+
+    public function deleteEnquiry($id)
+    {
+        Enquiry::where('id', $id)->delete();
+        return Redirect::route('admin.enquiry')->with('success', 'Updated Successfully!');
     }
 }

@@ -106,6 +106,7 @@ Route::post('invester-search', '\App\Http\Controllers\Api\APIController@invester
 Route::post('report-search', '\App\Http\Controllers\Api\APIController@reportSearch')->name('report.search');
 
 Route::get('social-link', '\App\Http\Controllers\Api\APIController@socialLinkList')->name('social.link');
+Route::get('contact-us', '\App\Http\Controllers\Api\APIController@contactUs')->name('contact.us');
 
 
 Route::post('email-subscription', '\App\Http\Controllers\Api\APIController@emailSubscription')->name('email.subscription');

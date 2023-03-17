@@ -111,9 +111,9 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email-1">Name</label>
+                                        <label for="email-1">City</label>
                                         <input type="text" class="form-control AlphabetsOnly checkuniqueCity"
-                                            name="name" placeholder="City" value="{{ old('name') }}" required>
+                                            name="name" placeholder="name" value="{{ old('name') }}" required>
                                         <span class="errorname"></span>
                                     </div>
 
@@ -156,10 +156,10 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email-1">Name</label>
+                                        <label for="email-1">City</label>
                                         <input type="text" id="name"
                                             class="form-control AlphabetsOnly checkuniqueCity" name="name"
-                                            value="{{ old('name') }}" required>
+                                            value="{{ old('name') }}" placeholder="name" required>
                                     </div>
                                 </div>
                             </div>
@@ -205,7 +205,6 @@
         $('.checkuniqueCity').on('change', function() {
             var cityValue = $('.checkuniqueCity').val();
             var _token = $('input[name="_token"]').val();
-            $(':input[type="submit"]').prop('disabled', true);
             $.ajax({
                 type: "POST",
                 url: '{!! route('admin.check.city') !!}',
